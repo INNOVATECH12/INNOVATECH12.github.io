@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INNOVA TECH - Vanguardia en Mantenimiento de Equipos de Cómputo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #1ale29;
+            --color-secondary: #132d46;
+            --color-accent: #01c38e;
+            --color-light: #ffffff;
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--color-light);
+            background-color: var(--color-secondary);
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+            padding: 20px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            width: 60px;
+            height: 60px;
+            margin-right: 15px;
+        }
+        .logo h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 28px;
+            margin: 0;
+            background: linear-gradient(90deg, var(--color-accent), var(--color-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 10px rgba(1, 195, 142, 0.5);
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav ul li a {
+            color: var(--color-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 15px;
+            border-radius: 20px;
+        }
+        nav ul li a:hover {
+            background-color: rgba(1, 195, 142, 0.2);
+            box-shadow: 0 0 15px rgba(1, 195, 142, 0.5);
+        }
+        .hero {
+            background: linear-gradient(rgba(19, 45, 70, 0.8), rgba(19, 45, 70, 0.8)), url('/api/placeholder/1200/600');
+            background-size: cover;
+            background-position: center;
+            color: var(--color-light);
+            text-align: center;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(26, 30, 41, 0.7), rgba(1, 195, 142, 0.3));
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .hero h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(1, 195, 142, 0.5);
+        }
+        .hero p {
+            font-size: 20px;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        .cta-button {
+            background: linear-gradient(90deg, var(--color-accent), var(--color-primary));
+            color: var(--color-light);
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(1, 195, 142, 0.4);
+        }
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(1, 195, 142, 0.6);
+        }
+        .features {
+            padding: 80px 0;
+            background: var(--color-secondary);
+            position: relative;
+            overflow: hidden;
+        }
+        .features::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            right: -50px;
+            bottom: -50px;
+            background: url('/api/placeholder/1200/600') center/cover no-repeat;
+            filter: blur(10px) opacity(0.1);
+            z-index: 0;
+        }
+        .features h3 {
+            text-align: center;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: var(--color-accent);
+            text-shadow: 0 0 10px rgba(1, 195, 142, 0.5);
+            position: relative;
+            z-index: 1;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        .feature-item {
+            text-align: center;
+            padding: 30px;
+            background: rgba(19, 45, 70, 0.8);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        .feature-item::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent,
+                rgba(1, 195, 142, 0.1),
+                transparent
+            );
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+        }
+        .feature-item:hover::before {
+            left: 100%;
+        }
+        .feature-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(1, 195, 142, 0.3);
+        }
+        .feature-item img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 10px rgba(1, 195, 142, 0.5));
+        }
+        .feature-item h4 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--color-accent);
+        }
+        .feature-item p {
+            color: var(--color-light);
+        }
+        .about {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--color-secondary), var(--color-primary));
+            color: var(--color-light);
+            position: relative;
+            overflow: hidden;
+        }
+        .about::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('/api/placeholder/1200/600') center/cover no-repeat;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        .about h3 {
+            text-align: center;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 36px;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px rgba(1, 195, 142, 0.5);
+            position: relative;
+            z-index: 1;
+        }
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 1;
+        }
+        .about-text {
+            flex: 1;
+            padding-right: 50px;
+        }
+        .about-image {
+            flex: 1;
+        }
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        footer {
+            background: var(--color-secondary);
+            color: var(--color-light);
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+        }
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-accent), var(--color-primary));
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="/api/placeholder/60/60" alt="INNOVA TECH Logo">
+                <h1>INNOVA TECH</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h2>Innovación Tecnológica a tu Alcance</h2>
+            <p>Optimizamos el rendimiento de tus equipos con soluciones de vanguardia y servicio personalizado.</p>
+            <button class="cta-button">Potencia tu Tecnología</button>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h3>Servicios de Alta Tecnología</h3>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <img src="/api/placeholder/80/80" alt="Mantenimiento Predictivo">
+                    <h4>Mantenimiento Predictivo</h4>
+                    <p>Anticipamos problemas antes de que ocurran con IA y análisis avanzado de datos.</p>
+                </div>
+                <div class="feature-item">
+                    <img src="/api/placeholder/80/80" alt="Reparación Avanzada">
+                    <h4>Reparación Avanzada</h4>
+                    <p>Solucionamos problemas complejos con técnicas y herramientas de última generación.</p>
+                </div>
+                <div class="feature-item">
+                    <img src="/api/placeholder/80/80" alt="Optimización Inteligente">
+                    <h4>Optimización Inteligente</h4>
+                    <p>Mejoramos el rendimiento con algoritmos adaptativos y tecnología de punta.</p>
+                </div>
+                <div class="feature-item">
+                    <img src="/api/placeholder/80/80" alt="Ciberseguridad Proactiva">
+                    <h4>Ciberseguridad Proactiva</h4>
+                    <p>Protección integral con sistemas de defensa autónomos y actualizaciones en tiempo real.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="container">
+            <h3>La Revolución INNOVA TECH</h3>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>En INNOVA TECH, no solo reparamos equipos, creamos el futuro de la tecnología. Nuestro equipo de expertos utiliza inteligencia artificial, big data y las últimas innovaciones para mantener tu infraestructura tecnológica a la vanguardia.</p>
+                    <p>Nuestra misión es transformar el mantenimiento de equipos de cómputo en una experiencia futurista, eficiente y sin complicaciones para nuestros clientes.</p>
+                </div>
+                <div class="about-image">
+                    <img src="/api/placeholder/500/300" alt="Tecnología INNOVA TECH en acción">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 INNOVA TECH. Impulsando el futuro de la tecnología.</p>
+        </div>
+    </footer>
+</body>
+</html>
